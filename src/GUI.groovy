@@ -1,6 +1,3 @@
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
 public class GUI {
     public static void main(String[] args) {
 
@@ -22,34 +19,10 @@ public class GUI {
         */
 
         // INPUT FOR ALBUM URL AS STANDS
-        String link = System.in.newReader().readLine()
-
-        DownloadAlbumCover(link);
+        // String link = System.in.newReader().readLine()
+        String link = "https://open.spotify.com/album/4SZko61aMnmgvNhfhgTuD3"
+        String destination = "C:\\Users\\lcwbr\\repos\\Misc\\AlbumCompare\\test.png"
+        print(Retrieve.getCover(link, destination));
     }
 
-    public static void DownloadAlbumCover(String url) {
-        String siteContent = new URL(url).text;
-        int index = siteContent.indexOf("<img aria-hidden=\"false\" draggable=\"false\" loading=\"eager\" src=")
-        String imageUrl = siteContent.substring((index + 64), (index + 128));
-        println(imageUrl);
-        String destinationFilePath = "C:\\Users\\lcwbr\\repos\\Misc\\AlbumCompare\\test.png";
-        InputStream inputStream = null;
-        try {
-            inputStream = new URL(imageUrl).openStream();
-            Files.copy(inputStream, Paths.get(destinationFilePath));
-        }
-        catch (IOException e) {
-            System.out.println("Exception Occurred " + e);
-        }
-        finally {
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                }
-                catch (IOException e) {
-                    // Ignore
-                }
-            }
-        }
-    }
 }
