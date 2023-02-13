@@ -25,7 +25,6 @@ public class GUI {
         String link = System.in.newReader().readLine()
 
         DownloadAlbumCover(link);
-
     }
 
     public static void DownloadAlbumCover(String url) {
