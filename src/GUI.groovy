@@ -19,9 +19,6 @@ public class GUI {
 
     public JFrame frame;
     public JPanel masterPanel;
-    public JPanel searchPanel;
-    public JPanel choosePanel;
-    public JPanel resultsPanel;
     public CardLayout layout;
 
 
@@ -38,15 +35,15 @@ public class GUI {
 
         // other panels
         StartPanel startPanel = new StartPanel();
-        searchPanel = new JPanel();
-        choosePanel = new JPanel();
-        resultsPanel = new JPanel();
+        SearchPanel searchPanel = new SearchPanel()
+        ChoosePanel choosePanel = new ChoosePanel()
+        ResultsPanel resultsPanel = new ResultsPanel()
 
         // adding panels to main panel
-        masterPanel.add(startPanel.startPanel, "Main Menu")
-        masterPanel.add(searchPanel, "Add Albums")
-        masterPanel.add(choosePanel, "Selection Process...")
-        masterPanel.add(resultsPanel, "Results")
+        masterPanel.add(startPanel.startPanel, "1")
+        masterPanel.add(searchPanel.searchPanel, "2")
+        masterPanel.add(choosePanel.choosePanel, "3")
+        masterPanel.add(resultsPanel.resultsPanel, "4")
 
         ImageIcon album = new ImageIcon("C:\\Users\\lcwbr\\repos\\Misc\\AlbumCompare\\src\\Luv Is Rage 2¬Lil Uzi Vert.png")
         JLabel albumLabel = new JLabel(album)
@@ -54,8 +51,7 @@ public class GUI {
 
         frame.getContentPane().add(masterPanel, BorderLayout.CENTER);
         frame.setVisible(true)
-        layout.show(masterPanel, "Main Menu")
-        // searchPanel.setVisible(true)
+        layout.show(masterPanel, "1")
 
     }
 }
